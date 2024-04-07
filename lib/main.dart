@@ -10,20 +10,57 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Hello App',
-      home: Scaffold(
-        body: Center(
-          child: Text(
-            'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type ',
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 40,
-              color: Colors.pinkAccent,
-              backgroundColor: Colors.green,
+      title: 'Image App',
+      home: HomePaje(),
+    );
+  }
+}
+
+class HomePaje extends StatelessWidget {
+  const HomePaje({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text('MY APP')),
+        backgroundColor: Colors.pinkAccent,
+        foregroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.home),
+        ),
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.notification_add))
+        ],
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.network(
+                'https://ssl.gstatic.com/onebox/media/sports/logos/mcpMspef1hwHwi9qrfp4YQ_96x96.png'),
+            SizedBox(
+              height: 30,
             ),
-          ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pinkAccent,
+                  foregroundColor: Colors.white,
+                  elevation: 5,
+                  shape: const RoundedRectangleBorder(
+                    side: BorderSide(
+                      width: 3,
+                      color: Colors.green,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(10))
+                  )),
+              child: const Text('CLICK ME'),
+            )
+          ],
         ),
       ),
     );
