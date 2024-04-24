@@ -37,19 +37,36 @@ class HomePaje extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GestureDetector(
-              onTap: (){
-                print('On Tap');
-              },
-              onDoubleTap: (){
-                print('On Double Tap');
-              },
-              onLongPress: (){
-                print('Long Prese');
-              },
-              child: Icon(Icons.add),
-            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Profile()));
+                },
+                child: Text('Profile')),
+            ElevatedButton(onPressed: () {}, child: const Text('Settings'))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Profile extends StatelessWidget {
+  const Profile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text('Profile')),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(onPressed: (){}, child: Text('Pvris Paje'))
           ],
         ),
       ),
