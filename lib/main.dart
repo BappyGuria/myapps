@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,43 +11,43 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Image App',
-      home: HomePaje(),
+      home:HomeScreen(),
+      theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.pinkAccent,
+            foregroundColor: Colors.white,
+            padding: EdgeInsets.all(10)
+          )
+        )
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark
+      ),
+      themeMode: ThemeMode.light,
     );
   }
 }
 
-class HomePaje extends StatelessWidget {
-  const HomePaje({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('MY APP')),
-        backgroundColor: Colors.pinkAccent,
-        foregroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.home),
-        ),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notification_add))
-        ],
+        title: Text('MY APP'),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Profile()));
-                },
-                child: Text('Profile')),
-            ElevatedButton(onPressed: () {}, child: const Text('Settings'))
+            ElevatedButton(onPressed: (){}, child: Text('Elevate Button'),style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,foregroundColor: Colors.white
+            ),),
+            ElevatedButton(onPressed: (){}, child: Text('Elevate Button')),
+            ElevatedButton(onPressed: (){}, child: Text('Elevate Button')),
           ],
         ),
       ),
@@ -53,23 +55,12 @@ class HomePaje extends StatelessWidget {
   }
 }
 
-class Profile extends StatelessWidget {
-  const Profile({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text('Profile')),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(onPressed: (){}, child: Text('Pvris Paje'))
-          ],
-        ),
-      ),
-    );
-  }
-}
+
+// /// All Style Apply
+// class ButtonStyles{
+//   static ButtonStyle elevatStyle = ElevatedButton.styleFrom(
+// backgroundColor:  Colors.blue,
+//     foregroundColor: Colors.white
+//   );
+// }
