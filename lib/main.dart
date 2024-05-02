@@ -33,19 +33,16 @@ class HomeScreen extends StatelessWidget {
           foregroundColor: Colors.white,
           centerTitle: true,
         ),
-        body: const Column(
-          children: [
-            Wrap(
-
-              children: [
-                Text(
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Loremdfbdbdb'),
-                Text(
-                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum')
-              ],
-            )
-          ],
-        ),
+        body: LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
+          if(constraints.maxWidth < 400){
+            return Text('Mobile Device');
+          }else if(constraints.maxWidth < 800){
+            return Text('Tablet Device');
+          }else if(constraints.maxWidth < 1000){
+            return Text('Laptop Device');
+          }
+          return Text('PC Device');
+        },)
       ),
     );
   }
