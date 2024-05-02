@@ -33,16 +33,24 @@ class HomeScreen extends StatelessWidget {
           foregroundColor: Colors.white,
           centerTitle: true,
         ),
-        body: LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
-          if(constraints.maxWidth < 400){
-            return Text('Mobile Device');
-          }else if(constraints.maxWidth < 800){
-            return Text('Tablet Device');
-          }else if(constraints.maxWidth < 1000){
-            return Text('Laptop Device');
-          }
-          return Text('PC Device');
-        },)
+        body: OrientationBuilder(
+          builder: (BuildContext context, Orientation orientation) {
+            if (orientation == Orientation.portrait) {
+              return Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.green,
+              );
+            }
+            else {
+              return Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.yellow,
+              );
+            }
+          },
+        ),
       ),
     );
   }
