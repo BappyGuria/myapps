@@ -33,23 +33,25 @@ class HomeScreen extends StatelessWidget {
           foregroundColor: Colors.white,
           centerTitle: true,
         ),
-        body: OrientationBuilder(
-          builder: (BuildContext context, Orientation orientation) {
-            if (orientation == Orientation.portrait) {
-              return Container(
-                width: double.infinity,
-                height: double.infinity,
+        body: Column(
+          children: [
+            Flexible(
+
+              child: Container(
                 color: Colors.green,
-              );
-            }
-            else {
-              return Container(
-                width: double.infinity,
-                height: double.infinity,
+              ),
+            ),
+            Flexible(
+              child: Container(
+                color: Colors.red,
+              ),
+            ),
+            Flexible(
+              child: Container(
                 color: Colors.yellow,
-              );
-            }
-          },
+              ),
+            ),
+          ],
         ),
       ),
     );
